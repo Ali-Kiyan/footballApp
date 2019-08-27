@@ -3,7 +3,7 @@ import Featured from './featured'
 
 const Home = () => {
     return (
-        <div className="">
+        <div className="bck_blue">
             <Featured />
         </div>
     );
