@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from './HOC/Layout';
+import Layout from './HoC/Layout';
 
 const Routes = (props) => {
   return (
