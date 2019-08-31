@@ -8,7 +8,9 @@ const FormField = ({formdata, id}) => {
             case('input'):
                 formTemplate = (
                     <div>
-                        INPUT WITH SOMETHING
+                        <input {...formdata.config}
+                        value={formdata.value}
+                        />
                     </div>
                 )
             break;
