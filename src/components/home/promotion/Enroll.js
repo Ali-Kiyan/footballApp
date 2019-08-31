@@ -27,8 +27,21 @@ export class Enroll extends Component {
         }
     }
 
-    submitForm(){
-
+    submitForm(event){
+        event.preventDefault();
+        let dataToSubmit = {};
+        let formIsValid = true;
+        for(let key in this.state.formdata ){
+            dataToSubmit[key] = this.state.formdata[key].value;
+            formIsValid = this.state.formdata[key].valid && formIsValid ;
+        }
+        if(formIsValid){
+            console.log(dataToSubmit)
+        }else{
+            this.setState({
+                formError: true
+            })
+        }
     }
 
     updateForm(element){
@@ -41,9 +54,9 @@ export class Enroll extends Component {
         newElement.validationMessage = validData[1];
         newFormdata[element.id] = newElement; 
         this.setState({
+            formError: false,
             formdata: newFormdata
         })
-        console.log(newFormdata)
 
     }
 
@@ -63,6 +76,8 @@ export class Enroll extends Component {
                             change={(element)=> this.updateForm(element)
                             }
                         />
+                        { this.state.formError ? <div className="error_label">Something is wrong</div> : null }
+                        <button onClick={(event)=> this.submitForm(event)}>Enroll</button>
                     </div>
                   </form>
               </div>  
