@@ -37,6 +37,7 @@ export class Enroll extends Component {
         }
         if(formIsValid){
             console.log(dataToSubmit)
+            this.resetFormSuccess()
         }else{
             this.setState({
                 formError: true
@@ -77,6 +78,9 @@ export class Enroll extends Component {
                             }
                         />
                         { this.state.formError ? <div className="error_label">Something is wrong</div> : null }
+                        <div className="success_label">
+                            {this.state.formSuccess}
+                        </div>
                         <button onClick={(event)=> this.submitForm(event)}>Enroll</button>
                     </div>
                   </form>
