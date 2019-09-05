@@ -38,7 +38,16 @@ export class Enroll extends Component {
             formError: false,
             formdata: newFormdata,
             formSuccess: 'Congratulations'
-        })
+        });
+        this.successMessage();
+    }
+
+    successMessage(){
+        setTimeout( ()=> {
+            this.setState({
+                formSuccess: ''
+            })
+        },2000)
     }
 
     submitForm(event){
