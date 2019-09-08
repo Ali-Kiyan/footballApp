@@ -28,7 +28,7 @@ export class Enroll extends Component {
         }
     }
 
-    resetFormSuccess(){
+    resetFormSuccess(type){
         const newFormdata = {...this.state.formdata}; 
         for (let key in newFormdata){
             newFormdata[key].value = '';
@@ -38,7 +38,7 @@ export class Enroll extends Component {
         this.setState({
             formError: false,
             formdata: newFormdata,
-            formSuccess: 'Congratulations'
+            formSuccess: type ? 'Congratulations' : 'Already in the database'
         });
         this.successMessage();
     }
@@ -63,10 +63,15 @@ export class Enroll extends Component {
 
             firebasePromotions.orderByChild('email').equalTo(dataToSubmit.email).once("value")
                 .then( (snapshot) => {
-                    console.log(snapshot.val());
+                    
+                    if(snapshot.val() === null){
+                        firebasePromotions.push(dataToSubmit);
+                        this.resetFormSuccess(true)
+                    }
+                    else{
+                        this.resetFormSuccess(false)
+                    }
                 })
-            console.log(dataToSubmit)
-            // this.resetFormSuccess()
         }else{
             this.setState({
                 formError: true
