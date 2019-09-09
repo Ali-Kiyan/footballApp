@@ -66,6 +66,7 @@ export class Enroll extends Component {
                     
                     if(snapshot.val() === null){
                         firebasePromotions.push(dataToSubmit);
+                        
                         this.resetFormSuccess(true)
                     }
                     else{
@@ -116,6 +117,7 @@ export class Enroll extends Component {
                             {this.state.formSuccess}
                         </div>
                         <button onClick={(event)=> this.submitForm(event)}>Enroll</button>
+                        <div className="enroll_discl">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, ratione?</div>
                     </div>
                   </form>
               </div>  
