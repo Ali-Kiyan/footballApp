@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import FormField from '../misc/formFields';
+import { validate } from '../misc/utility';
+
 
 
 export class SignIn extends Component {
@@ -43,7 +45,14 @@ export class SignIn extends Component {
     render() {
         return (
             <div>
-                sign in
+                <div className="container">
+                    <div className="signin_wrapper" style={{margin: '100px'
+                    }}>
+                        <form onSubmit={ (event)=> this.submitForm(event) }>
+                            <h2>Please log in</h2>
+                        </form>
+                    </div>
+                </div>
             </div>
         );
     }
