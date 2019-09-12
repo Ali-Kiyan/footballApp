@@ -42,12 +42,36 @@ export class SignIn extends Component {
         }
     }
 
-    submitForm(){
-        
+    submitForm(event){
+        event.preventDefault();
+        let dataToSubmit = {};
+        let formIsValid = true;
+        for(let key in this.state.formdata ){
+            dataToSubmit[key] = this.state.formdata[key].value;
+            formIsValid = this.state.formdata[key].valid && formIsValid ;
+        }
+        if(formIsValid){
+            console.log(dataToSubmit)
+        }else{
+            this.setState({
+                formError: true
+            })
+        }
     }
 
-    updateForm(){
-        
+    updateForm(element){
+        const newFormdata = {...this.state.formdata}; 
+        const newElement = {...newFormdata[element.id]}
+        newElement.value = element.event.target.value;
+
+        let validData = validate(newElement);
+        newElement.valid = validData[0]
+        newElement.validationMessage = validData[1];
+        newFormdata[element.id] = newElement; 
+        this.setState({
+            formError: false,
+            formdata: newFormdata
+        })
     }
 
     render() {
@@ -70,6 +94,8 @@ export class SignIn extends Component {
                             change={(element)=> this.updateForm(element)
                             }
                             />
+                            <button onClick={(event)=> this.submitForm(event)}>Log in</button>
+
                         </form>
                     </div>
                 </div>
