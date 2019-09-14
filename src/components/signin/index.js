@@ -58,7 +58,10 @@ export class SignIn extends Component {
                 dataToSubmit.email,
                 dataToSubmit.password
             ).then(()=>{
-                console.log("user is auth")
+                //this is rendering dashbaord component because this component is directly 
+                // referenced in the react router. if you were to render a compoennt from the childeren of the 
+                // wrapped in react router you have to pick a different method.
+                this.props.history.push("/dashboard")
             })
             .catch(err=>{
                 this.setState({
