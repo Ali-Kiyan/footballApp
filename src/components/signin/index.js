@@ -3,8 +3,6 @@ import FormField from '../misc/formFields';
 import { validate } from '../misc/utility';
 import { firebase } from '../../firebase';
 
-
-
 export class SignIn extends Component {
 
     state = {

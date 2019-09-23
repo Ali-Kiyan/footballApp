@@ -28,7 +28,6 @@ export class Blocks extends Component {
                         </div>
                     </div>
                 </Slide>
-               
             ))
         : 
         null

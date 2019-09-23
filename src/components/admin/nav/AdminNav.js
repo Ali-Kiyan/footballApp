@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { ListItem } from '@material-ui/core';
 
 const AdminNav = () => {
     const links = [
@@ -20,9 +21,19 @@ const AdminNav = () => {
             "linkTo": "/admin_players/add_player"
         }
     ]
+    const style = {
+        color: '#fff',
+        fontWeight: "300",
+        borderBottom: '1px solide #353535'
+    }
     const renderItems = () => (
         links.map( link => (
-            <Link key={link.title} to={link.linkTo}>   </Link>
+            <Link key={link.title} to={link.linkTo}> 
+                <ListItem button style={style}>
+                    {link.title}
+                </ListItem>
+            
+            </Link>
         ))
     )
     return (
