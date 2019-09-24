@@ -32,7 +32,6 @@ const AdminNav = () => {
                 <ListItem button style={style}>
                     {link.title}
                 </ListItem>
-            
             </Link>
         ))
     )
