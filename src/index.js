@@ -5,10 +5,10 @@ import Routes from './routes';
 import { BrowserRouter } from 'react-router-dom' 
 import { firebase } from './firebase';
 
-const App = () => {
+const App = (props) => {
     return (
         <BrowserRouter >
-            <Routes />
+            <Routes {...props}/>
         </BrowserRouter>
     )
 }
