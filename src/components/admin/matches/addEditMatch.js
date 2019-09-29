@@ -120,6 +120,46 @@ export class AddEditMatch extends Component {
                 validationMessage: '',
                 showLabel: true
             },
+            result: {
+                element: 'select',
+                value: '',
+                config: {
+                    label: 'Team result',
+                    name: 'select_result',
+                    type: 'select',
+                    options: [
+                        {key: 'W', value: 'W'},
+                        {key: 'L', value: 'L'},
+                        {key: 'D', value: 'D'},
+                        {key: 'N/A', value: 'N/A'}
+                    ]
+                },
+                validation: {
+                    required: true,
+                },
+                valid: false,
+                validationMessage: '',
+                showLabel: true
+            },
+            final: {
+                element: 'select',
+                value: '',
+                config: {
+                    label: 'Game played',
+                    name: 'select_played',
+                    type: 'select',
+                    options: [
+                        {key: 'Yes', value: 'Yes'},
+                        {key: 'No', value: 'No'},
+                    ]
+                },
+                validation: {
+                    required: true,
+                },
+                valid: false,
+                validationMessage: '',
+                showLabel: true
+            },
         }
     }
     render() {
@@ -197,6 +237,32 @@ export class AddEditMatch extends Component {
                                                 change={(element)=> this.updateForm(element)
                                                         }
                                             />
+                            </div>
+                            <div className="split_fields last">
+                                            <FormField 
+                                                id={'result'}
+                                                formdata={this.state.formData.result}
+                                                change={(element)=> this.updateForm(element)
+                                                        }
+                                            />
+                                            <FormField 
+                                                id={'final'}
+                                                formdata={this.state.formData.final}
+                                                change={(element)=> this.updateForm(element)
+                                                        }
+                                            />
+                            </div>
+                            <div className="success_label">{this.state.formSuccess}></div>
+                            {this.state.formError ? 
+                                <div className="error_label">
+                                    something went wrong
+                                </div>
+                                : ''
+                            }
+                            <div className="admin_submit">
+                                <button onClick={(event)=>this.submitForm(event)}>
+                                    {this.state.formType}
+                                </button>
                             </div>
 
 
