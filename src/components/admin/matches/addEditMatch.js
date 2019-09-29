@@ -162,6 +162,29 @@ export class AddEditMatch extends Component {
             },
         }
     }
+    updateForm(element){
+        const newFormdata = {...this.state.formdata}; 
+        const newElement = {...newFormdata[element.id]}
+        newElement.value = element.event.target.value;
+
+        let validData = validate(newElement);
+        newElement.valid = validData[0]
+        newElement.validationMessage = validData[1];
+        newFormdata[element.id] = newElement; 
+        this.setState({
+            formError: false,
+            formdata: newFormdata
+        })
+    }
+
+    componentDidMount(){
+        const matchId = this.props.match.params.id;
+        if(!matchId){
+            /// ADD MATCH
+        }else{
+
+        }
+    }
     render() {
         return (
             <AdminLayout>
