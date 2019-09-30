@@ -33,6 +33,14 @@ export class Fileuploader extends Component {
         })
     }
 
+    handleUploadSuccess = (filename) => {
+        console.log(filename)
+        this.setState({
+            name: filename,
+            isUploading: false
+        })
+    }
+
     render() {
 
         return (
