@@ -3,7 +3,7 @@ import AdminLayout from '../../../HoC/AdminLayout';
 import FormField from '../../misc/formFields';
 import { validate } from '../../misc/utility';
 import { firebaseTeams, firebaseDB, firebaseMatches } from '../../../firebase';
-import firebaseLooper from '../../misc/firebaseLooper';
+import { firebaseLooper } from '../../misc/firebaseLooper';
 
 
 export class AddEditMatch extends Component {
@@ -165,7 +165,7 @@ export class AddEditMatch extends Component {
         }
     }
     updateForm(element){
-        const newFormdata = {...this.state.formdata}; 
+        const newFormdata = {...this.state.formData}; 
         const newElement = {...newFormdata[element.id]}
         newElement.value = element.event.target.value;
 
@@ -175,18 +175,109 @@ export class AddEditMatch extends Component {
         newFormdata[element.id] = newElement; 
         this.setState({
             formError: false,
-            formdata: newFormdata
+            formData: newFormdata
+        })
+    }
+
+    updateFields(match, teamOptions, teams, type, matchId){
+        const newFormdata = {
+            ...this.state.formData
+        }
+        for (let key in newFormdata){
+            if(match){
+                newFormdata[key].value = match[key];
+                newFormdata[key].valid = true;
+            }
+            if(key === 'local' || key === 'away'){
+                newFormdata[key].config.options = teamOptions
+            }
+        }
+        this.setState({
+            matchId,
+            formType: type,
+            formData: newFormdata,
+            teams
         })
     }
 
     componentDidMount(){
         const matchId = this.props.match.params.id;
+        const getTeams = (match, type) => {
+            firebaseTeams.once('value').then(snapshot => {
+                const teams = firebaseLooper(snapshot);
+                const teamOptions = [];
+                snapshot.forEach((childSnapshot) => {
+                    teamOptions.push({
+                        key: childSnapshot.val().shortName,
+                        value:  childSnapshot.val().shortName
+                    })
+                })
+                this.updateFields(match, teamOptions, teams, type, matchId)
+            })
+        }
         if(!matchId){
             /// ADD MATCH
         }else{
-
+            firebaseDB.ref(`matches/${matchId}`).once('value').then((snapshot) => {
+                const match = snapshot.val();
+                getTeams(match, 'Edit Match');
+                console.log(match)
+            })
         }
     }
+
+    successForm(msg){
+        this.setState({
+            formSuccess: msg
+        });
+        setTimeout( ()=> {
+            this.setState({
+                formSuccess: ''
+            });
+        }, 2000)
+    }
+
+
+
+
+
+    submitForm(event){
+        event.preventDefault();
+        let dataToSubmit = {};
+        let formIsValid = true;
+        for(let key in this.state.formData ){
+            dataToSubmit[key] = this.state.formData[key].value;
+            formIsValid = this.state.formData[key].valid && formIsValid ;
+        }
+        this.state.teams.forEach((team)=> {
+            if(team.shortName === dataToSubmit.local){
+                dataToSubmit['localThmb'] = team.thmb
+            }
+            if(team.shortName === dataToSubmit.away){
+                dataToSubmit['awayThmb'] = team.thmb
+            }
+        })
+        if(formIsValid){
+            if(this.state.formType === 'Edit Match'){
+                firebaseDB.ref(`matches/${this.state.matchId}`)
+                .update(dataToSubmit).then((res)=> {
+                    this.successForm('Updated correctly');
+                }).catch((e)=>{
+                    this.setState({
+                        formError: true
+                    })
+                })
+            }else{
+                ///add match 
+            }
+        }else{
+            this.setState({
+                formError: true
+            })
+        }
+    }
+
+    
     render() {
         return (
             <AdminLayout>
@@ -277,7 +368,7 @@ export class AddEditMatch extends Component {
                                                         }
                                             />
                             </div>
-                            <div className="success_label">{this.state.formSuccess}></div>
+                            <div className="success_label">{this.state.formSuccess}</div>
                             {this.state.formError ? 
                                 <div className="error_label">
                                     something went wrong
