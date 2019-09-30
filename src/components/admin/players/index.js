@@ -33,9 +33,55 @@ export class AdminPlayers extends Component {
 
     render() {
         return (
-            <div>
-                players
-            </div>
+            <AdminLayout>
+                <div>
+                    <Paper>
+                        <Table>
+                            <TableHead>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>First Name</TableCell>
+                                        <TableCell>Last Name</TableCell>
+                                        <TableCell>Number</TableCell>
+                                        <TableCell>Position</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    { this.state.players ? 
+                                            this.state.players.map((player, index) => (
+                                                <TableRow key={index}>
+                                                    <TableCell>
+                                                        <Link to={`/admin_players/add_players/${player.id}`}> {player.lastname} </Link>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {player.lastname}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {player.number}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {player.position}
+                                                    </TableCell>
+                                                </TableRow>
+                                            ))
+                                        : null
+                                    }
+                                    <TableRow>
+
+                                    </TableRow>
+
+                                </TableBody>
+
+                            </TableHead>
+                        </Table>
+                        <div className="admin_progress">
+                            {this.state.isLoading ? <CircularProgress thickness={7} style={{
+                                color: '#98c5e9'
+                            }}/> : '' }
+                        </div>
+                    </Paper>
+                </div>
+            </AdminLayout>
         );
     }
 }
