@@ -301,7 +301,6 @@ export class AddEditMatch extends Component {
                                         }
                             />
 
-
                             <div className="select_team_layout">
                                 <div className="label_inputs">Local</div>
                                 <div className="wrapper">
