@@ -9,11 +9,28 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { firebaseMatches, firebase } from '../../../firebase';
+import { firebasePlayers, firebase } from '../../../firebase';
 import { firebaseLooper } from '../../misc/firebaseLooper';
 import { reverseArray } from '../../misc/utility';
 
 export class AdminPlayers extends Component {
+
+    state = {
+        isLoading: true,
+        players: []
+    }
+
+    componentDidMount(){
+        firebasePlayers.once('value').then( (snapshot) => {
+            const players = firebaseLooper(snapshot);
+            this.setState({
+                isLoading: false,
+                players: reverseArray(players)
+            })
+        })
+    }
+
+
     render() {
         return (
             <div>
