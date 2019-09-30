@@ -216,12 +216,11 @@ export class AddEditMatch extends Component {
             })
         }
         if(!matchId){
-            /// ADD MATCH
+            getTeams(false, 'Add Match')
         }else{
             firebaseDB.ref(`matches/${matchId}`).once('value').then((snapshot) => {
                 const match = snapshot.val();
                 getTeams(match, 'Edit Match');
-                console.log(match)
             })
         }
     }
@@ -268,7 +267,13 @@ export class AddEditMatch extends Component {
                     })
                 })
             }else{
-                ///add match 
+                firebaseMatches.push(dataToSubmit).then(()=>{
+                    this.props.history.push('/admin_matches');
+                }).catch((e)=>{
+                    this.setState({
+                        formError: true
+                    })
+                })
             }
         }else{
             this.setState({
