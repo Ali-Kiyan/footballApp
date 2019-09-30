@@ -21,7 +21,20 @@ export class Fileuploader extends Component {
         return null
     }
 
+    handleUploadStart = () => {
+        this.setState({
+            isUploading: true
+        })
+    }
+
+    handleUploadError = () => {
+        this.setState({
+            isUploading: false
+        })
+    }
+
     render() {
+
         return (
             <div>
                 {!this.state.fileURL ? 
@@ -38,6 +51,19 @@ export class Fileuploader extends Component {
                         />
                     </div>    
                 : null    
+            }
+            {this.state.isUploading ?
+            
+                <div className="progress" style={{
+                    textAlign: "center", 
+                    margin: '30px 0'
+                }}>
+                    <CircularProgress 
+                        style={{color: '#98c6e9'}}
+                        thickness={7}
+                    />
+                </div>    
+                : null
             }
             </div>
         );
