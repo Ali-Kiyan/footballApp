@@ -7,7 +7,7 @@ import Fileuploader  from '../../misc/fileuploader';
 
 export class AddEditPlayers extends Component {
     state = {
-        playersId: '',
+        playerID: '',
         formType: '',
         formError: false,
         formSuccess: '',
@@ -89,7 +89,21 @@ export class AddEditPlayers extends Component {
             }
         }
     }
+    updateFields = (player, playerID, formType, defaultImg) => {
+        const newFormData = { ...this.state.formData };
+        for( let key in newFormData){
+            newFormData[key].value = player[key];
+            newFormData[key].valid = true
+        }
+        this.setState({
+            playerID,
+            defaultImg,
+            formType,
+            formData: newFormData
+        })
 
+        
+    }
     componentDidMount(){
         const playerid = this.props.match.params.id;
         if(!playerid){
@@ -97,7 +111,13 @@ export class AddEditPlayers extends Component {
                formType: 'Add Player'
            })
         }else{
-            ///
+            firebaseDB.ref(`players/${playerid}`).once('value').then( snapshot => {
+                const playerData = snapshot.val();
+                firebase.storage().ref('players').child(playerData.image).getDownloadURL()
+                .then( (url) => {
+                    this.updateFields(playerData, playerid, 'Edit Player', url)
+                } )
+            })
         }
     }
 
