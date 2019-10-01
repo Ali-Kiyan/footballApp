@@ -34,7 +34,6 @@ export class Fileuploader extends Component {
     }
 
     handleUploadSuccess = (filename) => {
-        console.log(filename)
         this.setState({
             name: filename,
             isUploading: false
@@ -46,6 +45,27 @@ export class Fileuploader extends Component {
                 fileURL: url
             })
         })
+        this.props.filename(filename)
+    }
+
+
+    uploadAgain = () => {
+
+        // Delete the file
+        firebase.storage().ref(this.props.dir)
+        .child(this.state.name).delete().then(function() {
+            // File deleted successfully
+            }).catch((error) => {
+            //
+            console.log("Uh-oh, an error occurred!\n", error);
+            });
+        
+        this.setState({
+            name: '',
+            isUploading: false,
+            fileURL: ''
+            });
+        this.props.resetImage();
     }
 
     render() {
