@@ -37,7 +37,6 @@ export class AdminPlayers extends Component {
                 <div>
                     <Paper>
                         <Table>
-                            <TableHead>
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>First Name</TableCell>
@@ -66,13 +65,7 @@ export class AdminPlayers extends Component {
                                             ))
                                         : null
                                     }
-                                    <TableRow>
-
-                                    </TableRow>
-
                                 </TableBody>
-
-                            </TableHead>
                         </Table>
                         <div className="admin_progress">
                             {this.state.isLoading ? <CircularProgress thickness={7} style={{
