@@ -51,7 +51,7 @@ export class AdminPlayers extends Component {
                                             this.state.players.map((player, index) => (
                                                 <TableRow key={index}>
                                                     <TableCell>
-                                                        <Link to={`/admin_players/add_players/${player.id}`}> {player.lastname} </Link>
+                                                        <Link to={`/admin_players/add_players/${player.id}`}> {player.name} </Link>
                                                     </TableCell>
                                                     <TableCell>
                                                         {player.lastname}
