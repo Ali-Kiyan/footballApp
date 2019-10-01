@@ -140,6 +140,17 @@ export class AddEditPlayers extends Component {
         })
     }
 
+    successForm = (msg) => {
+        this.setState({
+            formSuccess: msg
+        })
+        setTimeout(()=>{
+            this.setState({
+                formSuccess: ''
+            })
+        },2000)
+    }
+
     submitForm(event){
         event.preventDefault();
         let dataToSubmit = {};
@@ -151,15 +162,23 @@ export class AddEditPlayers extends Component {
         if(formIsValid){
             if(this.state.formType === "Edit Player"){
 
+                firebaseDB.ref(`players/${this.state.playerID}`)
+                .update(dataToSubmit).then(()=>{
+                    this.successForm('Updated Successfully') 
+                })
+                .catch(e=>{
+                    this.setState({
+                        formError: true
+                    })
+                })
+
             }else{
-                console.log(dataToSubmit)
                 firebasePlayers.push(dataToSubmit).then( () => {
                     this.props.history.push('/admin_players')
                 }).catch(e=>{
                     this.state.formError = true;
                 })
             }
-          console.log(formIsValid)
         }else{
             this.setState({
                 formError: true
