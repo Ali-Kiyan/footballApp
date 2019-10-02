@@ -358,16 +358,16 @@ footer .footer_discl {
 
 .match_filters {
      display: flex;
-     border-bottom: 1px solid rgb(104, 104, 104);
-     background: #dff1ff;
+     border-bottom: 1px solid rgb(236, 235, 151);
+     background: #2d2d2d;
 }
 .match_filters .tag {
     font-weight: 300;
     margin-bottom: 5px;
-    color: #656565;
+    color: #ffffff;
 }
 .match_filters .option {
-    background: #ffffff;
+    background: #b1b1b1;
     padding: 5px 9px;
     border-radius: 3px;
     font-size: 13px;
@@ -383,7 +383,7 @@ footer .footer_discl {
 .match_filters_box {
     padding: 10px 20px;
     border-right: 1px solid #01285e;
-    background: #dff1ff;
+    background: #2d2d2d;
 }
 
 .match_filters .cont {
@@ -545,13 +545,13 @@ footer .footer_discl {
 }
 
 .league_table_wrapper {
-    border-left: 1px solid #61615c;
+    border-left: 1px solid #2d2d2d;
 }
 .league_table_wrapper .title {
     padding: 22px;
     font-size: 22px;
     color: #ffffff;
-    background: #51524d;
+    background: #2d2d2d;
     border-bottom: 1px solid #9b9c8b;
 }
 
