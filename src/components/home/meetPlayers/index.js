@@ -30,7 +30,7 @@ export class MeetPlayers extends Component {
                             </div>
                             <div className="home_text_wrapper">
                                 <div>
-                                    <Tag bck="#0e1731" size="100px" color="#fff"
+                                    <Tag bck="rgb(107, 107, 99)" size="100px" color="#fff"
                                         add={{
                                             display: 'inline-block',
                                             marginBottom: '20px'
@@ -40,7 +40,7 @@ export class MeetPlayers extends Component {
                                     </Tag>
                                 </div>
                                 <div>
-                                    <Tag bck="#0e1731" size="100px" color="#fff"
+                                    <Tag bck="rgb(107, 107, 99)" size="100px" color="#fff"
                                         add={{
                                             display: 'inline-block',
                                             marginBottom: '30px'
@@ -50,7 +50,7 @@ export class MeetPlayers extends Component {
                                     </Tag>
                                 </div>
                                 <div>
-                                    <Tag bck="#0e1731" size="100px" color="#fff"
+                                    <Tag bck="rgb(107, 107, 99)" size="100px" color="#fff"
                                         add={{
                                             display: 'inline-block',
                                             marginBottom: '20px'
@@ -64,7 +64,7 @@ export class MeetPlayers extends Component {
                                         add={{
                                             display: 'inline-block',
                                             marginBottom: '27px',
-                                            border: '1px solid #0e1731'
+                                            border: '1px solid #0e1731',
                                         }}>
                                         Meet them here
                                     </Tag>
