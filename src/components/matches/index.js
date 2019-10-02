@@ -10,7 +10,7 @@ export class Matches extends Component {
 
     state = {
         isLoading: true,
-        Matches: [],
+        matches: [],
         filterMatches: [],
         playerFilter: 'All',
         resultFilter: 'All'
@@ -33,7 +33,9 @@ export class Matches extends Component {
             return match.final === played
         } )
         this.setState({
-            filterMatches: list
+            filterMatches: played === "All" ? this.state.matches : list,
+            playerFilter: played,
+            resultFilter: 'All' 
         })
     }
 
