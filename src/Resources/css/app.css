@@ -154,9 +154,9 @@ button {
 
 footer {
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
     color: #ffffff;
-    padding: 30px 0px;
+    padding: 5px 0px 2px 0px;
 }
 
 footer .img_cover{
@@ -175,7 +175,7 @@ footer .footer_discl {
 .featured_wrapper {
     margin: 0 auto;
     width: 1280px;
-    margin-top: 90px;
+    margin-top: 77px;
     height: 800px;
     overflow: hidden;
 }
@@ -309,7 +309,7 @@ footer .footer_discl {
 
 .match_box_big {
     width:100%;
-    border-bottom: 2px solid rgb(104, 104, 104);
+    border-bottom: 2px solid rgb(97, 99, 83);
     padding: 20px;
     box-sizing: border-box;
     height: 143px;
@@ -358,7 +358,7 @@ footer .footer_discl {
 
 .match_filters {
      display: flex;
-     border-bottom: 1px solid rgb(236, 235, 151);
+     border-bottom: 1px solid rgb(97, 99, 83);
      background: #2d2d2d;
 }
 .match_filters .tag {
@@ -382,7 +382,7 @@ footer .footer_discl {
 
 .match_filters_box {
     padding: 10px 20px;
-    border-right: 1px solid #01285e;
+    border-right: 1px solid rgb(97, 99, 83);
     background: #2d2d2d;
 }
 
@@ -529,7 +529,7 @@ footer .footer_discl {
 ===============================*/
 
 .the_matches_container {
-    margin-top: 96px;
+    margin-top: 77px;
 }
 
 .the_matches_wrapper {
@@ -552,7 +552,7 @@ footer .footer_discl {
     font-size: 22px;
     color: #ffffff;
     background: #2d2d2d;
-    border-bottom: 1px solid #9b9c8b;
+    border-bottom: 1px solid rgb(97, 99, 83);
 }
 
 .the_matches_wrapper .progress {
@@ -598,7 +598,7 @@ footer .footer_discl {
 
 .admin_container h2 {
     margin: 0px 0px 50px 0px;
-    border-bottom: 1px solid #dbdbdb;
+    border-bottom: 1px solid rgb(97, 99, 83);
     color: #414141;
     font-size: 40px;
 }
@@ -637,7 +637,7 @@ footer .footer_discl {
 ===============================*/
 
 .the_team_container {
-    margin-top: 96px;
+    margin-top: 77px;
     padding: 20px;
     background-size: 5px 5px !important;
     min-height:100vh;

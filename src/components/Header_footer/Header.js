@@ -12,8 +12,8 @@ class Header extends Component {
            style={{
                backgroundColor: "rgb(66, 65, 65)", 
                boxShadow: 'none',
-               padding: '10px 0',
-               borderBottom: '2px solid #00285e'
+               padding: '0 0',
+               borderBottom: '2px solid rgb(97, 99, 83)'
            }}
            >
                <Toolbar style={{display: "flex"}}>
