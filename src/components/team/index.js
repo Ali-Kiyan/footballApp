@@ -17,7 +17,7 @@ export class Team extends Component {
         firebasePlayers.once('value').then(snapshot=>{
             const players = firebaseLooper(snapshot);
             let promises = [];
-            for ( key in players){
+            for ( let key in players){
                 promises.push(
                     new Promise((resolve, reject)=>{
                         firebase.storage().ref('players')
@@ -37,11 +37,38 @@ export class Team extends Component {
             })
         })
     }
+    showPlayersByCategory = (category) => (
+        this.state.players ? this.state.players.map((player,i)=>{
+            return player.position === category ? 
+                <Fade left key={i}>
+                    <div className="item">
+                        <PlayerCard number={player.number} name={player.name} lastname={player.lastname} bck={player.url}>
 
+                        </PlayerCard>
+                    </div>
+                </Fade> 
+            : null
+        }) : null
+    )
     render() {
         return (
-            <div>
-                
+            <div className="the_team_container" style={{
+                background: `url(${Stripes}) repeat`
+            }}>
+                {
+                    !this.state.loading ? 
+                        <div>
+                            <div className="team_category_wrapper">
+                                <div className="title">Keepers</div> 
+                                <div className="team_cards">
+                                    {this.showPlayersByCategory('keeper')}
+                                </div>
+                            </div>
+                        </div>
+                    : 
+                    
+                    null
+                }
             </div>
         );
     }

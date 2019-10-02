@@ -5,7 +5,7 @@ const playerCard = (props) => {
         <div className="player_card_wrapper">
             <div className="player_card_thmb"
                 style={{
-                    background: `#f2f9ff url(${props.bck})`
+                    background: `#fff url(${props.bck})`
                 }}
             >
 
