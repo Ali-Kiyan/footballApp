@@ -39,8 +39,9 @@ export class Team extends Component {
     }
     showPlayersByCategory = (category) => (
         this.state.players ? this.state.players.map((player,i)=>{
+            console.log( player.position)
             return player.position === category ? 
-                <Fade left key={i}>
+                <Fade left key={i} delay={i*40}>
                     <div className="item">
                         <PlayerCard number={player.number} name={player.name} lastname={player.lastname} bck={player.url}>
 
@@ -62,6 +63,18 @@ export class Team extends Component {
                                 <div className="title">Keepers</div> 
                                 <div className="team_cards">
                                     {this.showPlayersByCategory('keeper')}
+                                </div>
+                                <div className="title">Defenders</div> 
+                                <div className="team_cards">
+                                    {this.showPlayersByCategory('Defence')}
+                                </div>
+                                <div className="title">Midfielders</div> 
+                                <div className="team_cards">
+                                    {this.showPlayersByCategory('Midfield')}
+                                </div>
+                                <div className="title">Strikers</div> 
+                                <div className="team_cards">
+                                    {this.showPlayersByCategory('Striker')}
                                 </div>
                             </div>
                         </div>
