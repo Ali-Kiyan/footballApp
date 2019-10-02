@@ -1,19 +1,19 @@
 
 import React from 'react';
-import { CityLogo } from '../misc/icons'
+import { MadridLogo } from '../misc/icons'
 
 const Footer = () => {
     return (
-        <footer className="bck_blue">
+        <footer className="bck_dark_gold">
             <div className="footer_logo">
-                <CityLogo 
-                    width="70px"
+                <MadridLogo 
+                    width="3.1rem"
                     height="70px"
                     link
                     linkTo="/"
                 /> 
             </div>
-            <div className="footer_discl"> Manchester city 2019. All rights reserved </div>
+            <div className="footer_discl"> Real Madrid 2019. All rights reserved </div>
         </footer>
     );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Zoom } from 'react-reveal';
 import Jersey from '../../../Resources/images/jersey.jpg';
+import { blue } from '@material-ui/core/colors';
 
 const PromotionAnimation = () => {
     return (

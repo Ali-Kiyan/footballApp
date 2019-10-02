@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import mcitylogo from '../../Resources/images/logos/manchester_city_logo.png';
+import realmadrid from '../../Resources/images/logos/realmadrid.png';
 
-export const CityLogo = (props) => {
+export const MadridLogo = (props) => {
     const template = <div className="img_cover"
     style={{
         width: props.width,
         height: props.height,
-        background: `url(${mcitylogo}) no-repeat`
+        background: `url(${realmadrid}) no-repeat`
     }}
     ></div>
     if (props.link){

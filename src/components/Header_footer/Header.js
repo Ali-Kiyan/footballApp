@@ -3,14 +3,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { CityLogo } from '../misc/icons'
+import { MadridLogo } from '../misc/icons'
 
 class Header extends Component {
     render() {
         return (
            <AppBar position="fixed"
            style={{
-               backgroundColor: "#98c5e9", 
+               backgroundColor: "rgb(66, 65, 65)", 
                boxShadow: 'none',
                padding: '10px 0',
                borderBottom: '2px solid #00285e'
@@ -21,7 +21,7 @@ class Header extends Component {
                        flexGrow: 1
                    }}> 
                         <div className="header-logo">
-                            <CityLogo link={true} linkTo="/" width="70px" height="70px"/>
+                            <MadridLogo link={true} linkTo="/" width="3.1rem" height="70px"/>
                         </div>
                    </div>
                    <Link to="/team">

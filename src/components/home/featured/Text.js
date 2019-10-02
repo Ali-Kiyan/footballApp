@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { easePolyOut } from 'd3-ease';
 import { Animate } from 'react-move';
-import FeaturedPlayer from '../../../Resources/images/featured_player.png'
+import FeaturedPlayer from '../../../Resources/images/benz.png'
 
 class Text extends Component {
     animateNumber = () => (
@@ -30,7 +30,7 @@ class Text extends Component {
                             transform: `translate(260px, 170px) rotateY(${rotate}deg)`
                         }}
                     >
-                        3
+                        13
                     </div>
                 );
             }}
