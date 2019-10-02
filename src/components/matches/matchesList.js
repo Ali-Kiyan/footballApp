@@ -66,7 +66,24 @@ export class matchesList extends Component {
                                         transform: `translate(${x}px)`
                                     }}
                                     >
-                                        aa
+                                        <div className="block_wrapper">
+                                            <div className="block">
+                                                <div className="icon" style={{
+                                                    background: `url('/images/team_icons/${data.localThmb}.png') no-repeat`
+                                                }}>
+                                                </div>
+                                                <div className="team">{data.local}</div>    
+                                                <div className="team">{data.resultLocal}</div>    
+                                            </div>    
+                                            <div className="block">
+                                                <div className="icon" style={{
+                                                    background: `url('/images/team_icons/${data.awayThmb}.png') no-repeat`
+                                                }}>
+                                                </div>
+                                                <div className="team">{data.away}</div>    
+                                                <div className="team">{data.resultAway}</div>    
+                                            </div>  
+                                        </div>    
                                     </div>    
                             ))}
                     </div>
