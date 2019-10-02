@@ -117,6 +117,9 @@ export class AddEditPlayers extends Component {
                 .then( (url) => {
                     this.updateFields(playerData, playerid, 'Edit Player', url)
                 } )
+                .catch(e=>{
+                    this.updateFields({ ...playerData, image: ''}, playerid, 'Edit Player', '')
+                })
             })
         }
     }
