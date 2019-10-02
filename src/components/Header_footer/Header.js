@@ -24,10 +24,10 @@ class Header extends Component {
                             <CityLogo link={true} linkTo="/" width="70px" height="70px"/>
                         </div>
                    </div>
-                   <Link to="team">
+                   <Link to="/team">
                         <Button color="inherit">The Team</Button>
                    </Link>
-                   <Link to="the_matches">
+                   <Link to="/matches">
                         <Button color="inherit">Matches</Button>
                    </Link>
                </Toolbar>
