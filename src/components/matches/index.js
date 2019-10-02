@@ -32,15 +32,16 @@ export class Matches extends Component {
         const state = this.state;
         return (
             <div className="the_matches_container">
-                <div className="left">
-                    <div className="match_filter">
+                <div className="the_matches_wrapper">
+                    <div className="left">
+                        <div className="match_filter">
+                        </div>
+                        <MatchesList matches={state.filterMatches} />
                     </div>
-                    <MatchesList matches={state.filterMatches} />
-                </div>
-                <div className="right">
-                     <LeagueTable />
-                </div>
-                
+                    <div className="right">
+                        <LeagueTable />
+                    </div>
+                </div>    
             </div>
         );
     }
