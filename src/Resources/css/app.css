@@ -175,7 +175,7 @@ footer .footer_discl {
 .featured_wrapper {
     margin: 0 auto;
     width: 1280px;
-    margin-top: 77px;
+    margin-top: 76px;
     height: 800px;
     overflow: hidden;
 }
@@ -529,7 +529,7 @@ footer .footer_discl {
 ===============================*/
 
 .the_matches_container {
-    margin-top: 77px;
+    margin-top: 76px;
 }
 
 .the_matches_wrapper {
@@ -568,7 +568,7 @@ footer .footer_discl {
 ===============================*/
 
 .admin_container {
-    margin-top: 77px;
+    margin-top: 76px;
     display:flex;
 }
 
@@ -637,7 +637,7 @@ footer .footer_discl {
 ===============================*/
 
 .the_team_container {
-    margin-top: 77px;
+    margin-top: 76px;
     padding: 20px;
     background-size: 5px 5px !important;
     min-height:100vh;
