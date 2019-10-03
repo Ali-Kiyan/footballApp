@@ -60,7 +60,7 @@ export class MeetPlayers extends Component {
                                     </Tag>
                                 </div>
                                 <div>
-                                    <Tag bck="#fff" size="27px" color="#0e1731" link linkTo="the_team"
+                                    <Tag bck="#fff" size="27px" color="#0e1731" link linkTo="team"
                                         add={{
                                             display: 'inline-block',
                                             marginBottom: '27px',

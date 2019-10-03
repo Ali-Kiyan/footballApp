@@ -137,10 +137,10 @@ button {
 
 .not_found_container {
     text-align: center;
-    margin-top: 96px;
-    padding: 20px;
+    margin-top: 77px;
+    padding-top: 20px;
     background-size: 5px 5px !important;
-    min-height: 100vh;
+    min-height: 76vh;
     text-align: center;
     font-size: 90px;
     font-family: 'Righteous', cursive;
