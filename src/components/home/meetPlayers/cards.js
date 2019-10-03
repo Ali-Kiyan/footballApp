@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { easePolyOut }from 'd3-ease';
 import { Animate } from 'react-move';
 import MODRIC from '../../../Resources/images/players/MODRIC.jpg';
+import BALE from '../../../Resources/images/players/BALE.jpg';
 import PlayerCard from '../../misc/playerCard';
 
 export class HomeCards extends Component {
@@ -47,13 +48,20 @@ export class HomeCards extends Component {
                             position: 'absolute',
                             left,
                             bottom
-                        }}>
+                        }}> { i === 3 || i === 1  ? 
                             <PlayerCard 
                                 number="10"
                                 name="Luka"
                                 lastname="Modrić"
                                 bck={MODRIC}
-                            />
+                            /> :
+                              <PlayerCard 
+                                number="11"
+                                name="Gareth"
+                                lastname="Bale"
+                                bck={BALE}
+                            /> 
+                        }
                         </div>
                     )
                 }}
