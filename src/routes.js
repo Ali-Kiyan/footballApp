@@ -16,7 +16,6 @@ import Matches from './components/matches';
 
 
 const Routes = (props) => {
-  console.log(props)
   return (
     <div>
         <Layout>

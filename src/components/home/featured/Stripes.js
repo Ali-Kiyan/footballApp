@@ -53,7 +53,6 @@ class Stripes extends Component {
                     },
                     events: {
                         end(){
-                            console.log("animation is finished")
                         }
                     }
                 

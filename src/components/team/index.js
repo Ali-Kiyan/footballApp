@@ -39,7 +39,6 @@ export class Team extends Component {
     }
     showPlayersByCategory = (category) => (
         this.state.players ? this.state.players.map((player,i)=>{
-            console.log( player.position)
             return player.position === category ? 
                 <Fade left key={i} delay={i*40}>
                     <div className="item">
