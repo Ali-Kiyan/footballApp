@@ -57,7 +57,7 @@ export class Fileuploader extends Component {
             // File deleted successfully
             }).catch((error) => {
             //
-            console.log("Uh-oh, an error occurred!\n", error);
+            console.log("firebase storage error\n", error);
             });
         
         this.setState({
